@@ -1,0 +1,181 @@
+
+body, html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("/img/sepci/1.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+
+    /*background: red;*/
+    max-width: 100%;
+    max-height: 1000px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.logo {
+    background: black;
+    margin: 5px;
+    color: white;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    width: 33%;
+    float: left;
+    font-size: 25px;
+}
+
+.menu {
+    background: black;
+    margin: 5px;
+    color: white;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    width: 65%;
+    float: left;
+    display: flex;
+}
+
+.menu div {
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.nav {
+    margin: 5px;
+    color: white;
+    /*height: 520px;*/
+    /*line-height: 1000px;*/
+    width: 99%;
+    float: left;
+    display: flex;
+}
+
+.Player {
+    flex: 15%;
+}
+
+.Broad {
+    flex: 74%;
+}
+
+/*di chuyen tung the bai */
+.count {
+    position: absolute;
+    padding-top: 4.5%;
+    padding-left: 5.7%;
+}
+
+.pl1 {
+    padding-left: 5%;
+    height: 17%;
+    width: 90%;
+}
+
+.pl2 {
+    padding-left: 5%;
+    height: 17%;
+    width: 90%;
+}
+
+.pl1:hover {
+    opacity: 0.3;
+}
+
+.pl2:hover {
+    opacity: 0.3;
+}
+
+/* card arena*/
+.btn1 {
+    opacity: 0;
+    position: absolute;
+    top: 40.5%;
+    left: 41%;
+    color: red;
+    /*background;*/
+}
+
+.btn2 {
+    opacity: 0;
+    position: absolute;
+    top: 40.5%;
+    left: 34.5%;
+    color: red;
+    /*background: none;*/
+}
+
+.cardArena {
+    width: 60%;
+    height: 40%;
+    padding-left: 20%
+}
+
+.BroadArena1:hover .btn1 {
+    opacity: 1;
+}
+
+.BroadArena1:hover .btn2 {
+    opacity: 1;
+}
+
+.BroadArena1:hover .cardArena {
+    opacity: 0.3;
+}
+
+
+/*2222*/
+.btn21 {
+    opacity: 0;
+    position: absolute;
+    top: 40.5%;
+    left: 61%;
+    color: red;
+    /*background;*/
+}
+
+.btn22 {
+    opacity: 0;
+    position: absolute;
+    top: 40.5%;
+    left: 54.5%;
+    color: red;
+    /*background: none;*/
+}
+
+.cardArena1 {
+    width: 60%;
+    height: 40%;
+    padding-left: 20%
+}
+.BroadArena2:hover .btn21 {
+    opacity: 1;
+}
+
+.BroadArena2:hover .btn22 {
+    opacity: 1;
+}
+
+.BroadArena2:hover .cardArena1 {
+    opacity: 0.3;
+}
+
+#info1{
+    padding-left: 10%;
+}
+#info2{
+    padding-left: 10%;
+}
