@@ -73,11 +73,11 @@ function takeCardBorad(className) {
     for (let i = 0; i < numberCardBroad; i++) {
         if (numberCardBroad == 4 && count < 13) {
             str += ` 
-              <img class="${className}"  id=""  src="/img/sepci/ngang - Copy.jpg" >
+              <img class="${className}" style="height:100px" id=""  src="/img/sepci/ngang - Copy.jpg" >
               `
         } else
             str += ` 
-              <img class="${className}" onclick="cardArena(this.className)" id=""  src="/img/sepci/ngang - Copy.jpg" >
+              <img class="${className}" style="height:100px" onclick="cardArena(this.className)" id=""  src="/img/sepci/ngang - Copy.jpg" >
               `;
     }
     return str;
@@ -159,7 +159,6 @@ function cardArena(className) {
     numberCardBroad = 4;
     takeCardBorad(className);
     display(className);
-
 }
 function gameStart(className) {
     // chon bai

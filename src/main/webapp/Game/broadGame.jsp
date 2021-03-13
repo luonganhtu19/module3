@@ -91,7 +91,7 @@
                     <img class="load-card" src="/img/sepci/doc.jpg" style="padding-left: 15%;padding-top: 5px"
                          height="100%" width="70%"/>
                 </div>
-                <div style="padding-left: 30%;padding-bottom:5%; padding-top:5%; width:50%">
+                <div style="padding-left: 30%;padding-bottom:5%; padding-top:5%; width:50%;" >
                     <input class="pl2" id="pl21" onclick="gameStart(this.className)" type="button" value="Take Cards">
                 </div>
             </div>
