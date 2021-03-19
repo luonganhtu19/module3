@@ -48,6 +48,7 @@ public class UserDao implements IUserDao {
 
         User user=null;
         try(Connection connection=getConnection(); PreparedStatement preparedStatement=connection.prepareStatement(SELECT_USER_BY_NAME_ACCOUNT)) {
+            String check = getMD5(password) ;
             preparedStatement.setString(1,nameAccount);
             preparedStatement.setString(2,getMD5(password));
             System.out.println(preparedStatement);
@@ -107,8 +108,14 @@ public class UserDao implements IUserDao {
 
     private String getMD5(String input){
         try {
+            // Static getInstance method is called with hashing MD5
             MessageDigest md= MessageDigest.getInstance("MD5");
+
+            // digest() method is called to calculate message digest
+            //  of an input digest() return array of byte
             byte[] messageDigest= md.digest(input.getBytes());
+
+            // Convert byte array into signum representation
             BigInteger no= new BigInteger(1,messageDigest);
             String hashtext=no.toString(16);
             while (hashtext.length()<32){

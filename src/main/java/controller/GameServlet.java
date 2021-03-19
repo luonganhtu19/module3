@@ -20,9 +20,7 @@ public class GameServlet extends HttpServlet {
         Cookie[] cookie=req.getCookies();
         String resultGame=null;
 
-
     }
     private void checkResult(Cookie cookie){
-        
     }
 }

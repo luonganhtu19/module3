@@ -72,19 +72,18 @@ function takeCardBorad(className) {
 
     for (let i = 0; i < numberCardBroad; i++) {
         if (numberCardBroad == 4 && count < 13) {
-            str += ` 
-              <img class="${className}" style="height:100px" id=""  src="/img/sepci/ngang - Copy.jpg" >
+            str += `
+              <img class="${className}"  style="height:100px;"    src="/img/sepci/ngang - Copy.jpg" >
               `
         } else
-            str += ` 
-              <img class="${className}" style="height:100px" onclick="cardArena(this.className)" id=""  src="/img/sepci/ngang - Copy.jpg" >
+            str += `
+              <img class="${className}"  style="height:100px; color: red;"  onclick="cardArena(this.className)"  src="/img/sepci/ngang - Copy.jpg" >
               `;
     }
     return str;
 }
 
 function openCard(status, className) {
-
     if (count < 35) {
         switch (className) {
             case 1:
@@ -137,7 +136,7 @@ function display(className) {
         document.getElementById("broadCard1").innerHTML = strCard;
         if (numberCardBroad == 4) {
 
-            let str = `  <img id="openCard1" class="cardArena" src="/img/sepci/doc.jpg"  > 
+            let str = `  <img id="openCard1" class="cardArena" src="/img/sepci/doc.jpg"  >
                            <button id="attack11" class="btn1"  onclick="openCard('a',1)"> Attack</button>
                             <button id="defence12" class="btn2" onclick="openCard('b',1)"> Defence</button>`
             document.getElementById("cardBroadPl1").innerHTML = str;
@@ -208,14 +207,17 @@ function gameStart(className) {
             alert("Player 1 win");
             document.cookie="game=win"
             document.getElementById("result").innerText='win';
+            clear()
             return ;
         }else if(point1==point2){
             document.cookie="game=lose"
             document.getElementById("result").innerText='lose';
-            alert("Plaer 2 win")
+            alert("Player 2 win")
+            clear()
             return ;
         }else {
             alert("Match Draw, you can play again ")
+            clear()
             return ;
         }
     }

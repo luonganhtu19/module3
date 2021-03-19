@@ -36,12 +36,12 @@ public class UserServlet extends HttpServlet {
         processRequest(req,resp);
     }
 
-
+    // check login
     protected void processRequest(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String userName=request.getParameter("username");
         String password=request.getParameter("password");
         session=request.getSession();
-        String action= request.getParameter("action");
+        String action=(String) session.getAttribute("actionBe");
         User user=null;
         if (checkMatchInput(userName)&&checkMatchInput(password)) {
             user = userDao.checkLogin(userName,password);
@@ -57,40 +57,49 @@ public class UserServlet extends HttpServlet {
             dispatcher(request,response,dirURL(user,action,session));
         }
     }
+    //check input
     private boolean checkMatchInput(String valueInput){
+
         Pattern pattern=Pattern.compile("^(?=.{1,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])");
         boolean check=pattern.matcher(valueInput).matches();
         return check;
     }
-    private String dirURL(User user,String action,HttpSession session){
-        String pathUrl=null;
-        if (action.equals("home")){
-            session.setAttribute("path","Game/News.jsp");
-            pathUrl="index.jsp";
-            return pathUrl;
-        }else {
-            if (user==null){
-                return pathUrl="service/login.jsp";
-            }else {
+    //check action, take link
+    private String dirURL(User user, String action, HttpSession session){
+        /// use iframe in page Index, because path default is: path: index.jsp
+        String pathUrl="index.jsp";
+            // tao moi user
+            if (action.equals("create")){
+                session.setAttribute("path","service/CreateUser.jsp");
+                pathUrl= "service/CreateUser.jsp";
+            }
+            // chua dang nhap
+            else if (action.equals("playGame") && user ==null || action.equals("login")){
+                pathUrl = "service/Login.jsp";
+                session.setAttribute("actionBe","playGame");
+                if (action.equals("login"))  session.setAttribute("actionBe","home");;
+            }
+            // da dang nhap
+            else {
                 switch (action){
                     case "playGame":
-                        session.setAttribute("path","/Game/broadGame.jsp");
-                        session.removeAttribute("users");
+                        session.setAttribute("path", "/Game/BroadGame.jsp");
                         break;
                     case "ManagerCustomer":
-                        session.setAttribute("path","/service/userManagement.jsp");
                         List<User> users= userDao.selectListUser(user);
                         session.setAttribute("users",users);
+                        session.setAttribute("path","/service/UserManagement.jsp");
                         break;
-
+                    case "logout":
+                        session.removeAttribute("user");
+                        session.setAttribute("path","Game/News.jsp");
+                    default:
+                        session.setAttribute("path","Game/News.jsp");
                 }
-                if (pathUrl==null){
-                    pathUrl="index.jsp";
-                }
-                return pathUrl;
             }
-        }
+        return pathUrl;
     }
+    // forward servlet switch diff jsp(view)
     private void dispatcher(HttpServletRequest request,HttpServletResponse response,String pathUrl){
         session=request.getSession();
         session.setAttribute("patchUrl",pathUrl);
@@ -103,5 +112,4 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
 }

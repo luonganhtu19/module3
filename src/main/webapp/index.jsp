@@ -35,11 +35,11 @@
       </a>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto" style="padding-top: 5px">
               <li class="nav-item " >
-                  <a class="nav-link" href="/userServlet?action=home" style="display: inline !important;position: fixed">
-                      <span class="oi" data-glyph="home" title="icon name" aria-hidden="true"/>
-                      New
+                  <p style="margin-bottom: 0; height: 8px"></p>
+                  <a class="nav-link" href="/userServlet?action=home" style="display: inline !important" >
+                      <span class="oi" data-glyph="home" title="icon name" aria-hidden="true"/> New
                   </a>
               </li>
               <li class="nav-item">
@@ -47,17 +47,18 @@
               </li>
               <c:if test="${user!=null}">
               <li class="nav-item dropdown" style="display: inline">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: inline !important;position: fixed">
+                  <p style="margin-bottom: 0; height: 8px"></p>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: inline !important">
                       Task
                   </a>
                   <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item text-white bg-dark"  href="#">Profile</a>
+                      <a class="dropdown-item text-white bg-dark"   href="#">Profile</a>
                       <c:if test="${user.typeAccount=='admin'}">
-                      <a class="dropdown-item text-white bg-dark"  href="/userServlet?action=ManagerCustomer">Manager Customer</a>
+                      <a class="dropdown-item text-white bg-dark"   href="/userServlet?action=ManagerCustomer">Manager Customer</a>
                       </c:if>
-                      <a class="dropdown-item text-white bg-dark"  href="#">Ranking</a>
-                      <a class="dropdown-item text-white bg-dark"  href="#">History</a>
-                      <a class="dropdown-item text-white bg-dark" href="#">Shop</a>
+                      <a class="dropdown-item text-white bg-dark"   href="#">Ranking</a>
+                      <a class="dropdown-item text-white bg-dark"   href="#">History</a>
+                      <a class="dropdown-item text-white bg-dark"   href="#">Shop</a>
                   </div>
               </li>
               </c:if>
